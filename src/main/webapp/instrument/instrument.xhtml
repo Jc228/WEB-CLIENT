@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Instrumentos</title>
+</h:head>
+<h:body>
+    <h:form>
+    <table class="tg">
+            <tr>
+                <th width="120">Instrumento</th>
+            </tr>
+            <ui:repeat value="#{instruController.instrumentos}" var="instrument">
+                <tr>
+                    <td>${instrument.instrumentId}</td>
+                    <td><h:commandLink action="#{instruController.verInstrument(instrument)}" value="Detalles"></h:commandLink></td>
+                    <td><h:commandLink action="#{instruController.verEditInstrument(instrument)}" value="Editar"></h:commandLink></td>
+                    <td><h:commandLink action="#{instruController.borrarInstrument(instrument)}" value="Borrar"></h:commandLink></td>
+                </tr>
+            </ui:repeat>
+        </table>
+    </h:form>
+    <br></br><br></br>
+    <li><a href="/instrument/crear-instrument.xhtml">Crear Instrumento</a></li>
+    <li><a href="/index.html">Regresar al Inicio</a></li>
+
+</h:body>
+</html>

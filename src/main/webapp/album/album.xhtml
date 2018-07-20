@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Albums</title>
+</h:head>
+<h:body>
+    <h:form>
+    <table class="tg">
+            <tr>
+                <th width="80">Album ID</th>
+                <th width="120">Abum Name</th>
+                <th width="120">Fecha Creacion</th>
+            </tr>
+            <ui:repeat value="#{albController.albums}" var="album">
+                <tr>
+                    <td>${album.id}</td>
+                    <td>${album.title}</td>
+                    <td>${album.releaseDate}</td>
+                    <td><h:commandLink action="#{albController.verAlbum(album)}" value="Detalles"></h:commandLink></td>
+                    <td><h:commandLink action="#{albController.verEditarAlbum(album)}" value="Editar"></h:commandLink></td>
+                    <td><h:commandLink action="#{albController.borrarAlbum(album)}" value="Borrar"></h:commandLink></td>
+                </tr>
+            </ui:repeat>
+        </table>
+    </h:form>
+    <br></br><br></br>
+    <li><a href="/album/crear-album.xhtml.xhtml">Crear Cantante</a></li>
+    <li><a href="/index.html">Regresar al Inicio</a></li>
+
+</h:body>
+</html>
